@@ -30,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* ===== ТЕКСТУРНЫЙ ФОН ===== */
         body::before {
             content: '';
             position: fixed;
@@ -46,7 +45,6 @@
             pointer-events: none;
         }
 
-        /* ===== ТОНКАЯ СЕТКА ===== */
         body::after {
             content: '';
             position: fixed;
@@ -70,7 +68,6 @@
             padding-bottom: 20px;
         }
 
-        /* ===== ШАПКА ===== */
         .header {
             display: flex;
             align-items: center;
@@ -108,7 +105,6 @@
             color: #888;
         }
 
-        /* ===== ПАРОЛЬ ===== */
         .password-box {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 20px;
@@ -176,7 +172,6 @@
             stroke: #f5f5f5;
         }
 
-        /* ===== СЛОЖНОСТЬ ===== */
         .strength-container {
             margin-bottom: 30px;
         }
@@ -210,7 +205,6 @@
             transition: color 0.3s;
         }
 
-        /* ===== КАТЕГОРИИ ===== */
         .category-section {
             margin-bottom: 26px;
         }
@@ -280,7 +274,6 @@
             transform: scale(0.94);
         }
 
-        /* ===== НАСТРОЙКИ ===== */
         .settings-toggle {
             background: none;
             border: none;
@@ -352,7 +345,6 @@
             font-weight: 450;
         }
 
-        /* ===== iOS TOGGLE (ЧЁРНО-БЕЛЫЙ) ===== */
         .ios-switch {
             position: relative;
             width: 51px;
@@ -402,7 +394,6 @@
             background: #f5f5f5;
         }
 
-        /* ===== СЛАЙДЕР ===== */
         .slider-container {
             padding: 4px 0;
         }
@@ -452,7 +443,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* ===== КНОПКА ===== */
         .generate-btn {
             width: 100%;
             padding: 20px;
@@ -512,7 +502,6 @@
             transform: scale(0.96);
         }
 
-        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -539,7 +528,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* ===== МОДАЛКА (ЧЁРНО-БЕЛАЯ) ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -790,7 +778,7 @@
 <body>
 
     <div class="app-wrapper">
-        <!-- Шапка -->
+        <!-- Header -->
         <div class="header">
             <div class="header-icon">
                 <svg viewBox="0 0 24 24">
@@ -801,7 +789,7 @@
             <h1>Pass<span>Gen</span></h1>
         </div>
 
-        <!-- Пароль -->
+        <!-- Password -->
         <div class="password-box" onclick="openPasswordModal()">
             <span id="password">Нажмите «Сгенерировать»</span>
             <button class="icon-btn" onclick="event.stopPropagation(); copyPassword()" aria-label="Копировать">
@@ -812,7 +800,7 @@
             </button>
         </div>
 
-        <!-- Сложность -->
+        <!-- Strength -->
         <div class="strength-container">
             <div class="strength-bar">
                 <div class="strength-fill" id="strengthFill" style="width: 0%;"></div>
@@ -823,7 +811,7 @@
             </div>
         </div>
 
-        <!-- Категории -->
+        <!-- Categories -->
         <div class="category-section">
             <label>Категории</label>
             <div class="category-grid" id="categoryGrid">
@@ -841,13 +829,8 @@
                 </button>
                 <button class="category-chip" data-category="digits" onclick="selectCategory('digits')">
                     <svg viewBox="0 0 24 24">
-    <circle cx="7" cy="7" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-    <text x="4.5" y="9" font-size="8" font-weight="700" fill="currentColor">1</text>
-    <circle cx="17" cy="7" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-    <text x="14.5" y="9" font-size="8" font-weight="700" fill="currentColor">2</text>
-    <circle cx="12" cy="17" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-    <text x="9.5" y="19" font-size="8" font-weight="700" fill="currentColor">3</text>
-</svg>
+                        <text x="2" y="19" font-size="20" font-weight="800" fill="currentColor">123</text>
+                    </svg>
                     Цифры
                 </button>
                 <button class="category-chip" data-category="phrase" onclick="selectCategory('phrase')">
@@ -857,7 +840,7 @@
             </div>
         </div>
 
-        <!-- Настройки -->
+        <!-- Settings -->
         <button class="settings-toggle" onclick="toggleSettings()">
             <svg viewBox="0 0 24 24">
                 <path d="M12.22 2h-.44a2 2 0 00-2 2v.18a2 2 0 01-1 1.73l-.43.25a2 2 0 01-2 0l-.15-.08a2 2 0 00-2.73.73l-.22.38a2 2 0 00.73 2.73l.15.1a2 2 0 011 1.72v.51a2 2 0 01-1 1.74l-.15.09a2 2 0 00-.73 2.73l.22.38a2 2 0 002.73.73l.15-.08a2 2 0 012 0l.43.25a2 2 0 011 1.73V20a2 2 0 002 2h.44a2 2 0 002-2v-.18a2 2 0 011-1.73l.43-.25a2 2 0 012 0l.15.08a2 2 0 002.73-.73l.22-.39a2 2 0 00-.73-2.73l-.15-.08a2 2 0 01-1-1.74v-.5a2 2 0 011-1.74l.15-.09a2 2 0 00.73-2.73l-.22-.38a2 2 0 00-2.73-.73l-.15.08a2 2 0 01-2 0l-.43-.25a2 2 0 01-1-1.73V4a2 2 0 00-2-2z"/>
@@ -915,7 +898,7 @@
             </div>
         </div>
 
-        <!-- Кнопка -->
+        <!-- Generate Button -->
         <button class="generate-btn" onclick="generatePassword()">
             <svg viewBox="0 0 24 24">
                 <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9"/>
@@ -924,21 +907,18 @@
         </button>
     </div>
 
-    <!-- ===== МОДАЛКА ТОЛЬКО ДЛЯ ПАРОЛЯ ===== -->
+    <!-- ===== MODAL ===== -->
     <div class="modal-overlay" id="passwordModal" onclick="if(event.target===this) closePasswordModal()">
         <div class="modal-box">
             <button class="modal-close" onclick="closePasswordModal()">✕</button>
-
             <div class="modal-icon">
                 <svg viewBox="0 0 24 24">
                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                     <path d="M7 11V7a5 5 0 0110 0v4"/>
                 </svg>
             </div>
-
             <div class="modal-title">Ваш пароль</div>
             <div class="modal-sub">Нажмите на пароль чтобы скопировать</div>
-
             <div class="modal-password" onclick="copyModalPassword()">
                 <div class="pwd" id="modalPassword">••••••••••••</div>
                 <div class="pwd-strength">
@@ -946,7 +926,6 @@
                     <span id="modalStrength">—</span>
                 </div>
             </div>
-
             <div class="modal-actions">
                 <button class="btn-copy" onclick="copyModalPassword()">
                     <svg viewBox="0 0 24 24">
@@ -979,9 +958,6 @@
         let currentPassword = '';
 
         function generatePassword() {
-            const app = document.getElementById('app');
-            app.classList.add('generating');
-
             let length = parseInt(document.getElementById('lengthSlider').value);
             let uppercase = document.getElementById('uppercase').checked;
             let lowercase = document.getElementById('lowercase').checked;
@@ -1033,7 +1009,6 @@
             } else {
                 if (!chars) {
                     alert('Выберите хотя бы один тип символов!');
-                    app.classList.remove('generating');
                     return;
                 }
                 const array = new Uint32Array(length);
@@ -1053,8 +1028,6 @@
             document.getElementById('strengthFill').style.background = color;
             document.getElementById('strengthText').textContent = label;
             document.getElementById('strengthText').style.color = color;
-
-            app.classList.remove('generating');
         }
 
         function checkStrength(pwd) {
@@ -1141,7 +1114,6 @@
             toast._timer = setTimeout(() => toast.classList.remove('show'), 2000);
         }
 
-        // ===== МОДАЛКА ТОЛЬКО ДЛЯ ПАРОЛЯ =====
         function openPasswordModal() {
             if (!currentPassword) {
                 showToast('⚠️ Сначала сгенерируйте пароль');
@@ -1181,8 +1153,8 @@
             if (e.key === 'Escape') closePasswordModal();
         });
 
-        window.onload = () => {
-            setTimeout(generatePassword, 200);
+        window.onload = function() {
+            setTimeout(generatePassword, 100);
         };
     </script>
 
